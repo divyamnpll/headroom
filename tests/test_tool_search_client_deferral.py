@@ -412,12 +412,7 @@ def test_nothing_to_strip_returns_the_same_list() -> None:
 
 
 def test_github_copilot_upstream_keeps_deferral() -> None:
-    """Copilot accepts the deferred shape and bills deferred schemas compactly.
-
-    Downgrading it inlines the whole catalog: measured on a 295,634-byte body
-    with 103 deferred tools, billed prompt tokens went 48,016 -> 109,233 (2.3x)
-    purely because ``defer_loading`` was stripped.
-    """
+    """Copilot accepts the deferred shape and bills deferred schemas compactly."""
     tools = [ANTHROPIC_SEARCH_REGEX, {"name": "mcp__srv__a", "defer_loading": True}]
 
     out = strip_first_party_tool_search_tools_for_third_party_upstream(
